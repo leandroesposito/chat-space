@@ -1,0 +1,184 @@
+:root {
+    --color-background: #1a1a1a;
+    --color-room-background: #2a2a2a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #cccccc;
+    --color-border: #444444;
+    --color-current-room: #28a745;
+    --color-users-container-background: #333333;
+    --color-rooms-tag-background: #444444;
+    --color-create-room-background: #444444;
+    --color-online-users-tag-background: #444444;
+    --color-intermediate-messages: #2a2a2a;
+    --color-welcome-message: #2d3a2d;
+    --color-user-connected-message: #4f4f83;
+    --color-user-disconnected-message: #754141;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+#body {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 100vh;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+}
+
+#rooms {
+    border: 2px solid var(--color-border);
+    overflow-y: hidden;
+    background-color: var(--color-room-background);
+}
+
+#rooms.start {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+#rooms>div {
+    text-align: center;
+}
+
+#rooms.start #roomsContainer {
+    width: fit-content;
+    justify-content: center;
+}
+
+#roomsContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#roomsTag {
+    padding: 10px;
+    border-bottom: 2px solid var(--color-border);
+    background-color: var(--color-rooms-tag-background);
+}
+
+#rooms.start #roomsList {
+    flex: inherit !important;
+}
+
+#roomsList {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid var(--color-border);
+    overflow-y: auto;
+    background-color: var(--color-room-background);
+}
+
+#createRoom {
+    padding: 10px;
+    background-color: var(--color-create-room-background);
+    cursor: pointer;
+}
+
+#roomsList div {
+    padding: 5px;
+    border: 1px solid var(--color-border);
+    overflow-wrap: anywhere;
+    cursor: pointer;
+}
+
+.currentRoom {
+    background-color: var(--color-current-room);
+}
+
+#chatRoom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: hidden;
+}
+
+#chatBox {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    flex: 1;
+    overflow-y: hidden;
+}
+
+#messagesContainer {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#messages {
+    overflow-y: auto;
+}
+
+#messages>div {
+    padding: 5px 10px;
+    border: 1px solid var(--color-border);
+    overflow-wrap: break-word;
+}
+
+#messages>div:nth-child(odd) {
+    background-color: var(--color-intermediate-messages);
+}
+
+#onlineUsersMainContainer {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-users-container-background);
+}
+
+#onlineUsersTag {
+    padding: 10px;
+    border: 2px solid var(--color-border);
+    text-align: center;
+    background-color: var(--color-online-users-tag-background);
+}
+
+#onlineUsersContainer {
+    overflow: auto;
+    height: 100%;
+}
+
+#onlineUsers {
+    width: max-content;
+}
+
+#onlineUsers div {
+    padding: 2px 5px;
+}
+
+#newMessageForm>div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+#typing {
+    min-height: 1.25em;
+    color: var(--color-text-secondary);
+}
+
+.welcomeMessage {
+    background-color: var(--color-welcome-message) !important;
+}
+
+.joinMessage {
+    background-color: var(--color-user-connected-message) !important;
+}
+
+.disconnectedMessage {
+    background-color: var(--color-user-disconnected-message) !important;
+}
